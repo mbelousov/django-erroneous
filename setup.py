@@ -33,5 +33,5 @@ setup(
         'Django>=1.4',
         'South>=0.7.2'
     ],
-    version = '0.2.0',
+    version = '0.3.0',
 )
