@@ -7,7 +7,6 @@ setup(
         'erroneous': [
             'README.rst',
             'LICENSE.txt',
-            'erroneous.templates',
         ],
     },
     author = "Mridang Agarwalla",
