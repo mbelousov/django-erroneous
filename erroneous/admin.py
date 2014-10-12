@@ -37,7 +37,6 @@ class ErrorAdmin(admin.ModelAdmin):
         obj = self.get_object(request, unquote(object_id))
         extra_context = extra_context or {}
         extra_context.update({
-            'instance': obj,
             'error_body': mark_safe(obj.html),
         })
 
