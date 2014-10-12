@@ -4,15 +4,16 @@ from django.contrib.admin.util import unquote
 
 from erroneous.models import Error
 
+
 class ErrorAdmin(admin.ModelAdmin):
-    list_display    = ('path', 'kind', 'info', 'when')
+    list_display = ('path', 'kind', 'info', 'when',)
     list_display_links = ('path',)
-    ordering        = ('-id',)
-    search_fields   = ('path', 'kind', 'info', 'data')
+    ordering = ('-id',)
+    search_fields = ('path', 'kind', 'info', 'data')
     readonly_fields = ('path', 'kind', 'info', 'data', 'when', 'html',)
-    fieldsets       = (
+    fieldsets = (
         (None, {
-            'fields': ('kind', 'path', 'info' , 'when')
+            'fields': ('kind', 'path', 'info', 'when')
         }),
     )
 
