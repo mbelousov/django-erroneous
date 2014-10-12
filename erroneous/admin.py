@@ -29,17 +29,17 @@ class ErrorAdmin(admin.ModelAdmin):
         """
         return False
 
-    def change_view(self, request, object_id, extra_context={}):
+    def change_view(self, request, object_id, form_url='', extra_context=None):
         """
         The detail view of the error record.
         """
         obj = self.get_object(request, unquote(object_id))
-
+        extra_context = extra_context or {}
         extra_context.update({
             'instance': obj,
             'error_body': mark_safe(obj.html),
         })
 
-        return super(ErrorAdmin, self).change_view(request, object_id, extra_context)
+        return super(ErrorAdmin, self).change_view(request, object_id, form_url, extra_context)
 
 admin.site.register(Error, ErrorAdmin)
