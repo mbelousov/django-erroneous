@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.util import unquote
 
 from erroneous.models import Error
