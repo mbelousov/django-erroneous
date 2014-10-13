@@ -1,14 +1,8 @@
-import sys
 from setuptools import setup, find_packages
+
 
 setup(
     name = "django-erroneous",
-    package_data = {
-        'erroneous': [
-            'README.rst',
-            'LICENSE.txt',
-        ],
-    },
     author = "Mridang Agarwalla",
     author_email = "mridang.agarwalla@gmail.com",
     download_url='http://github.com/mridang/django-erroneous/downloads',
@@ -22,10 +16,8 @@ setup(
         'Programming Language :: Python',
         'Framework :: Django',
     ],
-    packages = [
-        'erroneous',
-        'erroneous.migrations',
-    ],
+    packages = find_packages(),
+    include_package_data=True, # this will use MANIFEST.in during install where we specify additional files
     zip_safe = False,
     license = "BSD License",
     install_requires = [
