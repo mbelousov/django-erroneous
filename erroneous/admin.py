@@ -40,6 +40,8 @@ class ErrorAdmin(admin.ModelAdmin):
             'error_body': mark_safe(obj.html),
         })
 
-        return super(ErrorAdmin, self).change_view(request, object_id, form_url, extra_context)
+        return super(ErrorAdmin, self).change_view(request, object_id, form_url,
+                                                   extra_context)
+
 
 admin.site.register(Error, ErrorAdmin)

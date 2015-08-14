@@ -6,7 +6,8 @@ class Error(models.Model):
     """
     Model for storing the individual errors.
     """
-    kind = models.CharField(_('type'), null=True, blank=True, max_length=128, db_index=True)
+    kind = models.CharField(_('type'), null=True, blank=True, max_length=128,
+                            db_index=True)
     info = models.TextField(null=False)
     data = models.TextField(blank=True, null=True)
     path = models.URLField(null=True, blank=True)
