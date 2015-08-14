@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+from django.contrib.auth import get_user_model
+from django.conf import settings
 
 class Error(models.Model):
     """
@@ -13,6 +14,8 @@ class Error(models.Model):
     path = models.URLField(null=True, blank=True)
     when = models.DateTimeField(null=False, auto_now_add=True, db_index=True)
     html = models.TextField(null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True,
+                             blank=True)
     modified = models.DateTimeField(auto_now=True)
 
     class Meta:

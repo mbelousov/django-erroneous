@@ -6,17 +6,18 @@ from erroneous.models import Error
 
 
 class ErrorAdmin(admin.ModelAdmin):
-    list_display = ('path', 'kind', 'info', 'when',)
+    list_display = ('path', 'kind', 'info', 'user', 'when',)
     list_display_links = ('path',)
     ordering = ('-id',)
-    search_fields = ('path', 'kind', 'info', 'data')
+    search_fields = ('path', 'kind', 'info', 'data', 'user__email')
     readonly_fields = ('path', 'kind', 'info', 'data', 'when', 'html',)
     fieldsets = (
         (None, {
             'fields': ('kind', 'path', 'info', 'when')
         }),
     )
-    change_form_template = 'erroneous/admin_change_form.html'
+    list_filter = ('kind',)
+    # change_form_template = 'erroneous/admin_change_form.html'
 
     def has_delete_permission(self, request, obj=None):
         """
