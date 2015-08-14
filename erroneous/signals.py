@@ -29,3 +29,5 @@ class LoggingExceptionHandler(object):
                 data='\n'.join(traceback.format_exception(kind, info, data)),
             )
             error.save()
+            if request:
+                request.session['error_id'] = error.pk
