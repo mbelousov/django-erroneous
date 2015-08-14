@@ -17,7 +17,7 @@ class ErrorAdmin(admin.ModelAdmin):
         }),
     )
     list_filter = ('kind',)
-    # change_form_template = 'erroneous/admin_change_form.html'
+    change_form_template = 'erroneous/admin_change_form.html'
 
     def has_delete_permission(self, request, obj=None):
         """

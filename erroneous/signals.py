@@ -28,8 +28,11 @@ class LoggingExceptionHandler(object):
                 info=info,
                 data='\n'.join(traceback.format_exception(kind, info, data)),
             )
-            if request.user:
+            if request and hasattr(request, 'user') and request.user and \
+                    request.user.is_authenticated():
                 error.user = request.user
+
             error.save()
-            if request:
+
+            if request and hasattr(request, 'session') and request.session:
                 request.session['error_id'] = error.pk
